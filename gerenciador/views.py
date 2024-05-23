@@ -1,5 +1,5 @@
 from rest_framework import viewsets, generics
-from .models import Usuario, Item, Pedido, ListaPedidosUsuario
+from .models import Usuario, Item, Pedido
 from .serializers import UsuarioSerializer, ItemSerializer, PedidoSerializer, ListaPedidosUsuarioSerializer
 
 class UsuarioViewSet(viewsets.ModelViewSet):
@@ -14,6 +14,8 @@ class PedidoViewSet(viewsets.ModelViewSet):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
 
-class ListaPedidosUsuarioView(generics.RetrieveAPIView):
-    queryset = ListaPedidosUsuario.objects.all()
+class ListaPedidosUsuario(generics.ListAPIView):
+    def get_queryset(self):
+        queryset = Pedido.objects.filter(usuario_id=self.kwargs['pk'])
+        return queryset
     serializer_class = ListaPedidosUsuarioSerializer

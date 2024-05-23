@@ -33,9 +33,3 @@ class Pedido(models.Model):
     def __str__(self):
         return f"Pedido {self.id} por {self.usuario.nome}"
     
-class ListaPedidosUsuario(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    pedidos = models.ManyToManyField('Pedido')
-
-    def __str__(self):
-        return f"Pedidos de {self.usuario.username}"
