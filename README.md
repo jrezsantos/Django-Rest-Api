@@ -27,8 +27,8 @@ Siga estas etapas para configurar o ambiente de desenvolvimento:
 * cd Django-Rest-Api
 
 ### - Crie um ambiente virtual e ative-o:
-python -m venv venv
-source env/bin/activate  # No Windows use `venv\Scripts\activate`
+* python -m venv venv
+* source env/bin/activate  # No Windows use `venv\Scripts\activate`
 
 
 ### - Instale as dependências:
