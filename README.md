@@ -28,7 +28,7 @@ Siga estas etapas para configurar o ambiente de desenvolvimento:
 
 ### - Crie um ambiente virtual e ative-o:
 * python -m venv venv
-* source env/bin/activate  # No Windows use `venv\Scripts\activate`
+* source env/bin/activate    # No Windows use `venv\Scripts\activate`
 
 
 ### - Instale as dependências:
@@ -37,7 +37,8 @@ pip install -r requirements.txt
 
 ### - Aplique as migrações do banco de dados:
 python manage.py migrate
-Crie um superusuário:
+
+### - Crie um superusuário:
 python manage.py createsuperuser
 
 
@@ -46,7 +47,7 @@ python manage.py runserver
 
 
 
-### Uso
+## Uso
 Após iniciar o servidor, você pode acessar a API através de http://127.0.0.1:8000/.
 
 
