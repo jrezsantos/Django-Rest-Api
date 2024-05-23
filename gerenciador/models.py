@@ -18,9 +18,9 @@ class Usuario(models.Model):
         super().save(*args, **kwargs)
 
 class Item(models.Model):
-    codigo_item = models.CharField(max_length=30)
-    nome = models.CharField(max_length=100)
-    preco = models.DecimalField(max_digits=10, decimal_places=2, blank=False, null=False)
+    codigo_item = models.CharField(max_length=30, unique=True)
+    nome = models.CharField(max_length=100, db_index=True)
+    preco = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.nome
@@ -32,4 +32,5 @@ class Pedido(models.Model):
 
     def __str__(self):
         return f"Pedido {self.id} por {self.usuario.nome}"
-    
+    def calcular_valor_total(self):
+        return sum(item.preco for item in self.itens.all())
