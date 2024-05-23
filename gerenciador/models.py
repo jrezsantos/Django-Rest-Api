@@ -7,7 +7,7 @@ class Usuario(models.Model):
     email = models.EmailField(unique=True)
     cpf = models.CharField(max_length=11, unique=True)
     celular = models.CharField(max_length=14)
-    senha = models.CharField(max_length=128)
+    #senha = models.CharField(max_length=128)
 
     def __str__(self):
         return self.nome
