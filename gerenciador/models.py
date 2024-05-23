@@ -30,7 +30,3 @@ class Pedido(models.Model):
     itens = models.ManyToManyField(Item)
     data_pedido = models.DateTimeField(auto_now_add=True, blank=False)
 
-    def __str__(self):
-        return f"Pedido {self.id} por {self.usuario.nome}"
-    def calcular_valor_total(self):
-        return sum(item.preco for item in self.itens.all())
